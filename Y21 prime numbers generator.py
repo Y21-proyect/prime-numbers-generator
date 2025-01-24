@@ -1,7 +1,7 @@
 # Y21 Prime numbers generator - Version 3.0
 
 
-import os
+import os # limpiar consola
 import time
 
 
@@ -350,6 +350,14 @@ while True:
         input()
         seleccion='0'
         clear_console()
+
+
+
+
+        
+
+
+        
 
 
 
