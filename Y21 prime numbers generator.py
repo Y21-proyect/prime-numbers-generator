@@ -1,4 +1,4 @@
-import os # limpiar consola
+import os 
 import time
 
 eleccion=True
@@ -153,102 +153,214 @@ def animacion():
 
 animacion()
 
-print ('\n\n    This program is part of an altruistic work and challenges that I propose to myself.')
-print ('    The altruistic part is that it makes life easier for other people.')
-print ('    Achieving challenges is good for your health, it keeps your self-esteem strong.')
-print ('    it is beneficial on two sides. I don`t know that little "be intelligently selfish"')
-print ('    or the saying "helping others is helping oneself"\n\n')
-print ('    It`s an open source type program, you can see the programming code and change it with a')
-print ('    program to make programs, type IDLE. It is a way of providing transparency and that it is not infected\n\n')
-print ('    If you like this program and want to know more curious things you can visit my channel \n    de youtube https://www.youtube.com/@yogalidof.21 ')
-print ('    Also visit my page and read some free books on \n    https://www.calameo.com/accounts/1582946  \n\n')
-print ('    Or my free open source programs page en https://github.com/y21-proyect')
-print ('    Some important, my webs are in spanhis lenguaje')
-print ('    You don`t need to give a like, I don`t live from this. Best regards \n\n    Doc \n\n\n    Press ENTER to continue...')
-input('')
+seleccion=''
+seleccion2=''
+
+while True:
 
 
-clear_console()
+    print(' @ Y21 PRIME NUMBERS GENERATOR - VERSION 3.0 @\n')
+    print('   -------- MAIN MENU-------\n')
+    print('  1 - Generate prime numbers near a maxim limit value')
+    print('  3 - Generate a determinated number of prime numbers ')
+    print('  5 - About Yogalidof 21 proyect')
+    print('----------------------------------------------------')
+    seleccion=input('Selection: ')
 
 
-
-dividendo=19
-divisor=1
-cociente=0
-resto=0
-valor=''
-valor2=0
-txt=''
-
-ciclo=0
-llave=True
-primos=[2,3,5,7,11,13,17,19]
-
-resultado=''
-
-print('This program will make a new txt document with the prime numbers')
-txt=input('type the name for this new txt and press ENTER ')
-
-txt=txt+'.txt'
-
-valor=input('\nHow many prime numbers do you want inside? ')
-
-valor2=int(valor)
-
-print('making ',valor, 'prime numbers inside',txt)
-print('I will advise you when it finish')
-
-
-while ciclo<valor2:  #bucle buscador numeros primos
+    if seleccion=='5':
         
-        if llave==True:
-                
-                #print('\nProceso divisiones usando lista de primos')
-                
-                for divisor in primos: # filtro de primos ya encontrados en lista
-                        #print('ENTRADA',dividendo,divisor,cociente,resto, primos)
+        clear_console()
+
+        print ('\n\n    This program is part of an altruistic work and challenges that I propose to myself.')
+        print ('    The altruistic part is that it makes life easier for other people.')
+        print ('    Achieving challenges is good for your health, it keeps your self-esteem strong.')
+        print ('    it is beneficial on two sides. I don`t know that little "be intelligently selfish"')
+        print ('    or the saying "helping others is helping oneself"\n\n')
+        print ('    It`s an open source type program, you can see the programming code and change it with a')
+        print ('    program to make programs, type IDLE. It is a way of providing transparency and that it is not infected\n\n')
+        print ('    If you like this program and want to know more curious things you can visit my channel \n    de youtube https://www.youtube.com/yogalidof.21 ')
+        print ('    Also visit my page and read some free books on \n    https://www.calameo.com/accounts/1582946  \n\n')
+        print ('    Or my free open source programs page en https://github.com/y21-proyect')
+        print ('    Some important, my webs are in spanhis lenguaje')
+        print ('    You don`t need to give a like, I don`t live from this. Best regards \n\n    Doc \n\n\n    Press ENTER to continue...')
+        input('')
+
+
+        clear_console()
+        seleccion=0
+
+
+    while seleccion=='1':
+
+        clear_console()
+
+        inicio=0
+        nombre=''
+        limite=0
+        limitador=0
+        ciclo=2
+        numero=0
+        cursor=0
+        cursor1=0
+        lim_cursor=0
+
+
+        pizarra=[]
+        primos=[]
+
+        resultado=''
+
+        print('The program uses the RAM memory of your computer. More big number need more RAM memory')
+        print('if you tipe a number and the computer don´t have necessary RAM memory for it, it stop')
+        print('and show a message of memory trouble')
+        print('\nThe program is going to do txt document with the list of prime numbers.')
+        nombre=input('What name do do you want for it?')
+        nombre=nombre+'.txt'
+        limite=int(input('prime number maxim value'))
+
+        
+
+        while ciclo<limite:  #bucle escribir pizarra
+
+            pizarra.append(ciclo)
+            ciclo+=1
+
+        limitador=pizarra[0]
+        lim_cursor=len(pizarra)
+        ciclo=0
+
+        print('board ok')
+
+        for numero in pizarra: #obtener valores de la pizarra uno a uno
+            limitador=pow(numero,2) # cuando el numero al cuadrado supera el limite
+                                    # se cumple la condicion de que multiplicado por sus
+                                    # primos anteriores no sobrepasaba el limite y multiplicado por
+                                    # los siguientes sí. Pone fin al proceso
+            if limitador>limite:
+                break
+
+            if numero!=0: # valor obtenido diferente de 0
+                cursor1=cursor
+                cursor1=cursor1+numero
+
+                while cursor1<lim_cursor: #bucle para poner 0 en los multiplos del numero
+                    pizarra[cursor1]=0
+                    cursor1=cursor1+numero #suma el valor del numero por si mismo en lugar de multiplicar
                         
+            cursor+=1
+            ciclo+=1
+
+
+        for numero in pizarra:
+            if numero!=0:
+                primos.append(numero)
+
+
+        with open(nombre, 'a', encoding='utf-8') as txt:
+                for numero in primos:
+                        resultado=str(numero)+'\n'
+                        txt.write(resultado)
+
+        print('Process finished.')
+        input('Press ENTER for main menu')
+        seleccion='0'
+        clear_console()
+
+
+
+
+    while seleccion=='3':
+
+        dividendo=19
+        divisor=1
+        cociente=0
+        resto=0
+        valor=''
+        valor2=0
+        txt=''
+
+        ciclo=0
+        llave=True
+        primos=[2,3,5,7,11,13,17,19]
+
+        resultado=''
+
+        print('This program will make a new txt document with the prime numbers')
+        txt=input('type the name for this new txt and press ENTER ')
+
+        txt=txt+'.txt'
+
+        valor=input('\nHow many prime numbers do you want inside? ')
+
+        valor2=int(valor)
+
+        print('making ',valor, 'prime numbers inside',txt)
+        print('I will advise you when it finish')
+
+
+        while ciclo<valor2:  #bucle buscador numeros primos
+                
+                if llave==True:
+                        
+                        #print('\nProceso divisiones usando lista de primos')
+                        
+                        for divisor in primos: # filtro de primos ya encontrados en lista
+                                #print('ENTRADA',dividendo,divisor,cociente,resto, primos)
+                                
+                                cociente=dividendo//divisor
+                                resto=dividendo%divisor
+
+                                #print('DIVISIONES: ',dividendo,divisor,cociente,resto,primos)
+
+                                
+                                if resto==0:
+                                        #print('Multiplo de ',divisor)
+                                        dividendo+=2                               
+                                        break
+                                
+                        if resto!=0:
+                                llave=False
+                                #print('\nProceso divisiones sin usar lista de primos')
+                             
+                               
+                else:
+                                        
+                        #print('ENTRADA',dividendo,divisor,cociente,resto, primos)
+
                         cociente=dividendo//divisor
                         resto=dividendo%divisor
 
                         #print('DIVISIONES: ',dividendo,divisor,cociente,resto,primos)
-
-                        
-                        if resto==0:
-                                #print('Multiplo de ',divisor)
-                                dividendo+=2                               
-                                break
-                        
-                if resto!=0:
-                        llave=False
-                        #print('\nProceso divisiones sin usar lista de primos')
-                     
-                       
-        else:
-                                
-                #print('ENTRADA',dividendo,divisor,cociente,resto, primos)
-
-                cociente=dividendo//divisor
-                resto=dividendo%divisor
-
-                #print('DIVISIONES: ',dividendo,divisor,cociente,resto,primos)
-                               
-                if resto==0 and cociente==1:
-                        #print('# numero primo localizado',divisor)
-                        primos.append(divisor)
-                        llave=True
-                        ciclo+=1
-                        dividendo+=2
+                                       
+                        if resto==0 and cociente==1:
+                                #print('# numero primo localizado',divisor)
+                                primos.append(divisor)
+                                llave=True
+                                ciclo+=1
+                                dividendo+=2
 
 
-                else:
-                        divisor+=2
+                        else:
+                                divisor+=2
 
-with open(txt, 'a', encoding='utf-8') as txt:
-        for divisor in primos:
-                resultado=str(divisor)+'\n'
-                txt.write(resultado)
+        with open(txt, 'a', encoding='utf-8') as txt:
+                for divisor in primos:
+                        resultado=str(divisor)+'\n'
+                        txt.write(resultado)
 
-print('\nProcess finished')
+        print('\nProcess finished')
 
-input()
+        input()
+        seleccion='0'
+        clear_console()
+
+
+
+
+        
+
+
+        
+
+
