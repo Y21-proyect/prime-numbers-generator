@@ -1,3 +1,5 @@
+# Y21 Prime numbers generator Version 3.0
+
 import os 
 import time
 
