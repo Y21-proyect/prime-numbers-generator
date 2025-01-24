@@ -1,4 +1,5 @@
 # Y21 Prime numbers generator - Version 3.0
+# (In memory of Aida I)
 
 
 import os # limpiar consola
