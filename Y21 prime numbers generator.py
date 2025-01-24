@@ -1,16 +1,10 @@
-# Y21 Prime numbers generator Version 3.0
+# Y21 Prime numbers generator - Version 3.0
 
-import os 
+
+import os
 import time
 
-eleccion=True
-valor=''
-valorA=''
-valor1=''
-valor2=''
-valor3=''
-frase=''
-cuestionario=''
+
 
 def clear_console(): #FUNCION LIMPIAR CONSOLA
     if os.name == 'nt': # selector de sistema operativo para borrar el texto de la consola
@@ -364,5 +358,6 @@ while True:
 
 
         
+
 
 
